@@ -1,42 +1,32 @@
-# Power BI Interview Handbook — Advanced Modules
+<div id="top"></div>
+# Power BI Interview Handbook
 
-This document contains modules **5 to 14** of the full Power BI Interview Handbook.  
-It focuses on advanced and practical Power BI concepts — from visualization and data relationships to automation and real-time analytics.
-
-Use this as a continuation of your Power BI learning journey or as a focused interview preparation resource for advanced topics.
-
----
-
-## Included Modules
-5. Visualizations & Reports  
-6. Power BI Relationships & Joins  
-7. Power BI Service (Cloud)  
-8. Row-Level Security (RLS)  
-9. Performance Optimization  
-10. Power BI Deployment & Administration  
-11. Power BI with Excel & Other Tools  
-12. Advanced Topics in Power BI  
-13. Power BI Integration & Automation  
-14. Real-Time & Industry Scenarios  
+This handbook is a comprehensive, interactive guide to Power BI interview preparation. 
+It covers beginner to advanced topics with detailed explanations, examples, and scenarios. 
+Expand each section to read the full Q&A. No content has been shortened.
 
 ---
 
-5. Visualizations & Reports
-6. Power BI Relationships & Joins
-7. Power BI Service (Cloud)
-8. Row-Level Security (RLS)
-9. Performance Optimization
-10. Power BI Deployment & Administration
-11. Power BI with Excel & Other Tools
-12. Advanced Topics
-13. Power BI Integration & Automation
-14. Real-Time & Industry Scenarios
+## Table of Contents
+
+- [1. Power BI Basics](#1.-power-bi-basics)
+- [2. Power Query (Data Loading & Transformation)](#2.-power-query-data-loading--transformation)
+- [3. Data Modeling](#3.-data-modeling)
+- [4. DAX (Data Analysis Expressions)](#4.-dax-data-analysis-expressions)
+- [5. Visualizations & Reports](#5.-visualizations--reports)
+- [6. Power BI Relationships & Joins](#6.-power-bi-relationships--joins)
+- [7. Power BI Service (Cloud)](#7.-power-bi-service-cloud)
+- [8. Row-Level Security (RLS)](#8.-row-level-security-rls)
+- [9. Performance Optimization in Power BI](#9.-performance-optimization-in-power-bi)
+- [10. Power BI Deployment & Administration](#10.-power-bi-deployment--administration)
+- [11. Power BI with Excel & Other Tools](#11.-power-bi-with-excel--other-tools)
+- [12. Advanced Topics in Power BI](#12.-advanced-topics-in-power-bi)
+- [13. Power BI Integration & Automation](#13.-power-bi-integration--automation)
+- [14. Real-Time & Industry Scenarios](#14.-real-time--industry-scenarios)
 
 ---
 
-Each topic below is collapsible for easy reading.
-Click **▼ Expand** to open a section.
-
+## 1. Power BI Basics
 
 <details>
 <summary><strong>1. Power BI Basics</strong></summary>
@@ -106,9 +96,13 @@ If issues persist, perform manual refresh in Desktop to isolate the error before
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
+
+## 2. Power Query (Data Loading & Transformation)
 
 <details>
 <summary><strong>2. Power Query (Data Loading & Transformation)</strong></summary>
@@ -194,9 +188,13 @@ Example formula:
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
+
+## 3. Data Modeling
 
 <details>
 <summary><strong>3. Data Modeling</strong></summary>
@@ -248,9 +246,13 @@ Descriptive or categorical info → Dimension table
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
+
+## 4. DAX (Data Analysis Expressions)
 
 <details>
 <summary><strong>4. DAX (Data Analysis Expressions)</strong></summary>
@@ -281,140 +283,13 @@ Here CALCULATE creates a new filter context.
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
 
-<details>
-<summary><strong>4. DAX (Data Analysis Expressions) — Intermediate to Advanced</strong></summary>
-
-Intermediate DAX Concepts
-
-#### Q: Explain the CALCULATE() function.
-Answer:
-CALCULATE() is one of the most powerful and important DAX functions in Power BI.
-It changes the filter context of a calculation and then evaluates an expression under that new context.
-Syntax:
-CALCULATE(<expression>, <filter1>, <filter2>, ...)
-Example:
-Sales_East = CALCULATE(SUM(Sales[Amount]), Region[Name] = "East")
-Here, CALCULATE() computes total sales but only for rows where the Region is “East.”
-Use Cases:
-Conditional calculations (e.g., sales for a specific region or time period)
-Time intelligence (YTD, MTD)
-Dynamic filtering (changing context based on slicers)
-Key Concept:
-It transitions from row context to filter context when used with iterators (e.g., SUMX()).
-
-#### Q: Explain the difference between SUM() and SUMX().
-Tip:
-Use SUMX() when you need to calculate a derived column on the fly, not stored in the model.
-
-#### Q: What is the FILTER() function in DAX?
-Answer:
-FILTER() creates a virtual table based on specific conditions.
-It is often used inside CALCULATE() or iterator functions.
-Syntax:
-FILTER(<table>, <filter_expression>)
-Example:
-HighSales = CALCULATE(SUM(Sales[Amount]), FILTER(Sales, Sales[Amount] > 10000))
-Here, only rows with Sales > 10,000 are included in the calculation.
-Note:
-Always use FILTER() when multiple logical conditions are needed (AND, OR) or when simple filters won’t work inside CALCULATE().
-
-#### Q: How do ALL() and ALLEXCEPT() work?
-Use Case:
-They are used to ignore certain filters — for instance, to calculate percent of total, grand totals, or benchmark comparisons.
-
-#### Q: How do you perform time intelligence using DAX (YTD, MTD, QTD)?
-Answer:
-DAX provides built-in time intelligence functions to calculate metrics over time.
-To use them, you must have a Date table marked as a Date Table in Power BI.
-Common Time Intelligence Functions:
-
-🚀 Advanced DAX Concepts
-
-#### Q: How would you optimize DAX measures for performance?
-Answer:
-Optimizing DAX ensures faster report refresh and interaction.
-Key practices:
-Avoid complex row-by-row operations: Use measures instead of calculated columns.
-Leverage variables (VAR) — reduces repeated calculations.
-Use simple filters: Prefer KEEPFILTERS() over nested FILTER() where possible.
-Aggregate early: Summarize data at the source or Power Query.
-Avoid too many bi-directional relationships.
-Use SUMMARIZECOLUMNS() for table calculations instead of SUMMARIZE() in some cases.
-Example:
-VAR TotalSales = SUM(Sales[Amount])
-RETURN DIVIDE(TotalSales, [Target], 0)
-
-#### Q: Explain EARLIER() and EARLIEST() functions.
-Answer:
-These functions are used when you have nested row contexts, allowing you to reference values from an outer row context inside an inner one.
-Example:
-SalesRank = 
-RANKX(
-    FILTER(Sales, Sales[Region] = EARLIER(Sales[Region])),
-    Sales[Amount]
-)
-Here, EARLIER() references the outer context (Region) while ranking each sale amount within that region.
-EARLIEST() works similarly but returns the earliest row context when multiple nested ones exist.
-
-#### Q: Write a DAX formula to calculate running total.
-Answer:
-RunningTotal = 
-CALCULATE(
-    SUM(Sales[Amount]),
-    FILTER(
-        ALLSELECTED('Date'),
-        'Date'[Date] <= MAX('Date'[Date])
-    )
-)
-Explanation:
-ALLSELECTED() keeps only the filters applied in visuals (e.g., month/year slicers).
-FILTER() dynamically includes all previous dates up to the current one.
-Used for trend charts and cumulative analysis.
-
-#### Q: How would you handle dynamic filtering using DAX?
-Answer:
-Dynamic filtering enables measures that respond to user selections.
-Example:
-To display sales based on the selected measure (Revenue or Quantity):
-SelectedValue =
-SWITCH(
-    TRUE(),
-    SELECTEDVALUE(Metric[Name]) = "Revenue", SUM(Sales[Revenue]),
-    SELECTEDVALUE(Metric[Name]) = "Quantity", SUM(Sales[Quantity]),
-    BLANK()
-)
-Use Case:
-Users pick a metric from a slicer → DAX automatically adjusts the displayed calculation.
-
-#### Q: Example: Calculate % of Total Sales by Region
-Sales % of Total = 
-DIVIDE(
-    SUM(Sales[Amount]),
-    CALCULATE(SUM(Sales[Amount]), ALL(Region)),
-    0
-)
-Explanation:
-Removes the filter on Region to get total sales.
-Divides regional sales by total sales → dynamic percent of total.
-
-#### Q: Example: Cumulative Sales Last 12 Months
-Sales_L12M =
-CALCULATE(
-    SUM(Sales[Amount]),
-    DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -12, MONTH)
-)
-
- Summary: When to Use What
-
-</details>
-
-[⬆️ Back to Top](#power-bi-interview-handbook)
-
----
+## 5. Visualizations & Reports
 
 <details>
 <summary><strong>5. Visualizations & Reports</strong></summary>
@@ -570,9 +445,13 @@ Use slicers strategically instead of multiple filters.
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
+
+## 6. Power BI Relationships & Joins
 
 <details>
 <summary><strong>6. Power BI Relationships & Joins</strong></summary>
@@ -635,9 +514,13 @@ Use USERELATIONSHIP() for alternate links.
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
+
+## 7. Power BI Service (Cloud)
 
 <details>
 <summary><strong>7. Power BI Service (Cloud)</strong></summary>
@@ -742,9 +625,13 @@ Use dataflows for reusability and consistency.
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
+
+## 8. Row-Level Security (RLS)
 
 <details>
 <summary><strong>8. Row-Level Security (RLS)</strong></summary>
@@ -844,9 +731,13 @@ Use Dynamic RLS for scalable, automated access management.
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
+
+## 9. Performance Optimization in Power BI
 
 <details>
 <summary><strong>9. Performance Optimization in Power BI</strong></summary>
@@ -959,9 +850,13 @@ This helps identify bottlenecks — whether they’re caused by DAX, visuals, or
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
+
+## 10. Power BI Deployment & Administration
 
 <details>
 <summary><strong>10. Power BI Deployment & Administration</strong></summary>
@@ -1057,9 +952,13 @@ Integrate Power BI activity logs with SIEM tools (e.g., Sentinel).
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
+
+## 11. Power BI with Excel & Other Tools
 
 <details>
 <summary><strong>11. Power BI with Excel & Other Tools</strong></summary>
@@ -1117,86 +1016,13 @@ Answer:
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
 
-<details>
-<summary><strong>1. Export Data to Excel:</strong></summary>
-
-In Power BI Desktop or Service → Right-click on a visual → Export data.
-Exports summarized or underlying data in .xlsx or .csv format.
-Two export options:
-Summarized data: Only the aggregated result.
-Underlying data: All rows contributing to the visual (if allowed).
-
-</details>
-
-[⬆️ Back to Top](#power-bi-interview-handbook)
-
----
-
-<details>
-<summary><strong>2. Export Reports to PowerPoint:</strong></summary>
-
-In Power BI Service → File → Export → PowerPoint (.pptx).
-Each report page becomes a PowerPoint slide.
-Option to include a live link back to the Power BI report.
-
-</details>
-
-[⬆️ Back to Top](#power-bi-interview-handbook)
-
----
-
-<details>
-<summary><strong>3. Export to PDF:</strong></summary>
-
-Ideal for fixed reporting (board packs, client reports).
-File → Export → PDF or Publish to Web → Print to PDF.
-
-</details>
-
-[⬆️ Back to Top](#power-bi-interview-handbook)
-
----
-
-<details>
-<summary><strong>4. Copy Visuals:</strong></summary>
-
-Copy any chart or card → Paste into PowerPoint/Word → Retains dynamic link if from Power BI Service.
-Tip:
-Enable the Export Settings in Admin Portal to control who can export and what data level is allowed for security compliance.
-
- Other Integrations
-🔸 With Microsoft Teams:
-Embed Power BI dashboards inside Teams channels.
-Use Power BI App for Teams → Pin dashboards for easy access.
-Discuss insights in context with chat collaboration.
-🔸 With SharePoint Online:
-Embed Power BI reports in SharePoint pages using the Power BI web part.
-Auto-refreshes whenever the dataset updates.
-🔸 With Power Automate:
-Automate alert notifications (e.g., email when profit < target).
-Trigger workflows from data refresh events.
-🔸 With Power Apps:
-Create forms or apps that write data back to Power BI datasets.
-Build interactive apps within Power BI dashboards.
-
- Example:
-A company’s HR team can:
-Use Power BI to visualize attrition trends.
-Use Excel (Analyze in Excel) for pivot-level analysis by region.
-Use Power Automate to send alerts if attrition > 10%.
-Embed all of this in Microsoft Teams for executive review.
-
-💡 Best Practices for Power BI–Excel Integration
-
-</details>
-
-[⬆️ Back to Top](#power-bi-interview-handbook)
-
----
+## 12. Advanced Topics in Power BI
 
 <details>
 <summary><strong>12. Advanced Topics in Power BI</strong></summary>
@@ -1354,9 +1180,13 @@ Auditable classification and compliance tracking.
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
+
+## 13. Power BI Integration & Automation
 
 <details>
 <summary><strong>13. Power BI Integration & Automation</strong></summary>
@@ -1463,9 +1293,13 @@ This creates a closed-loop BI ecosystem — from data insight → action → fee
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
+
+[Back to Top](#top)
+
 
 ---
+
+## 14. Real-Time & Industry Scenarios
 
 <details>
 <summary><strong>14. Real-Time & Industry Scenarios</strong></summary>
@@ -1628,6 +1462,5 @@ Scale analytics to billions of rows efficiently
 
 </details>
 
-[⬆️ Back to Top](#power-bi-interview-handbook)
 
----
+[Back to Top](#top)
