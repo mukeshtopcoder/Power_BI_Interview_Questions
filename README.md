@@ -1,54 +1,26 @@
+# Power BI Interview Handbook — Advanced Modules
 
-# Power BI Interview Handbook
+This document contains modules **5 to 14** of the full Power BI Interview Handbook.  
+It focuses on advanced and practical Power BI concepts — from visualization and data relationships to automation and real-time analytics.
 
-Welcome to the **Power BI Interview Handbook** — a complete, in-depth preparation guide designed for learners, analysts, and professionals aspiring to master Microsoft Power BI.
-
-This document covers everything from beginner-level concepts to advanced enterprise implementation. Each section is interactive and detailed, offering conceptual explanations, practical insights, examples, and scenario-based interview questions.
-
----
-
-## 📚 How to Use This Handbook
-
-- Expand each section to explore questions and answers in depth.  
-- Study **conceptual questions** to build understanding.  
-- Review **practical and scenario-based questions** to gain real-world insight.  
-- Use this handbook as a **self-learning or interview preparation resource**.
+Use this as a continuation of your Power BI learning journey or as a focused interview preparation resource for advanced topics.
 
 ---
 
-## 📖 Table of Contents
-
-1. [Power BI Basics](#1-power-bi-basics)  
-2. [Power Query (Data Loading & Transformation)](#2-power-query-data-loading--transformation)  
-3. [Data Modeling](#3-data-modeling)  
-4. [DAX (Data Analysis Expressions)](#4-dax-data-analysis-expressions)  
-5. [Visualizations & Reports](#5-visualizations--reports)  
-6. [Power BI Relationships & Joins](#6-power-bi-relationships--joins)  
-7. [Power BI Service (Cloud)](#7-power-bi-service-cloud)  
-8. [Row-Level Security (RLS)](#8-row-level-security-rls)  
-9. [Performance Optimization](#9-performance-optimization)  
-10. [Power BI Deployment & Administration](#10-power-bi-deployment--administration)  
-11. [Power BI with Excel & Other Tools](#11-power-bi-with-excel--other-tools)  
-12. [Advanced Topics in Power BI](#12-advanced-topics-in-power-bi)  
-13. [Power BI Integration & Automation](#13-power-bi-integration--automation)  
-14. [Real-Time & Industry Scenarios](#14-real-time--industry-scenarios)
+## Included Modules
+5. Visualizations & Reports  
+6. Power BI Relationships & Joins  
+7. Power BI Service (Cloud)  
+8. Row-Level Security (RLS)  
+9. Performance Optimization  
+10. Power BI Deployment & Administration  
+11. Power BI with Excel & Other Tools  
+12. Advanced Topics in Power BI  
+13. Power BI Integration & Automation  
+14. Real-Time & Industry Scenarios  
 
 ---
 
-
-
-# Power BI Interview Handbook
-
-A complete and detailed collection of **Power BI interview questions and answers**, organized by topic.  
-This guide covers everything from beginner concepts to advanced enterprise scenarios.
-
----
-
-## Table of Contents
-1. Power BI Basics
-2. Power Query (Data Loading & Transformation)
-3. Data Modeling
-4. DAX (Data Analysis Expressions)
 5. Visualizations & Reports
 6. Power BI Relationships & Joins
 7. Power BI Service (Cloud)
